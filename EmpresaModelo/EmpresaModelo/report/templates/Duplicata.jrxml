@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Duplicata"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<queryString><![CDATA[select cc_titulosareceber_numero, cc_titulosareceber_parcela, cc_titulosareceber_emissao, cc_titulosareceber_vencimentodata,
+       cc_titulosareceber_valor, cc_terceiros_nome, cc_titulosareceber_enderecosacado, cc_titulosareceber_cidadesacado, 
+       cc_titulosareceber_ufsacado, cc_titulosareceber_cepsacado, cc_titulosareceber_serie,
+       cc_terceirosdocumentos_cnpj, cc_terceirosdocumentos_ie, cc_terceirosdocumentos_cpf,
+       cc_titulosareceber_praca 
+from cc_titulosareceber
+left join cc_terceiros on cc_terceiros_id = cc_titulosareceber_terceiros_id
+left join cc_terceirosdocumentos on cc_terceirosdocumentos_terceiros_id = cc_terceiros_id
+order by 1, 2]]></queryString>
+
+	<field name="cc_titulosareceber_numero" class="java.lang.String"/>
+	<field name="cc_titulosareceber_parcela" class="java.lang.Integer"/>
+	<field name="cc_titulosareceber_emissao" class="java.sql.Date"/>
+	<field name="cc_titulosareceber_vencimentodata" class="java.sql.Date"/>
+	<field name="cc_titulosareceber_valor" class="java.math.BigDecimal"/>
+	<field name="cc_terceiros_nome" class="java.lang.String"/>
+	<field name="cc_titulosareceber_enderecosacado" class="java.lang.String"/>
+	<field name="cc_titulosareceber_cidadesacado" class="java.lang.String"/>
+	<field name="cc_titulosareceber_ufsacado" class="java.lang.String"/>
+	<field name="cc_titulosareceber_cepsacado" class="java.lang.String"/>
+	<field name="cc_titulosareceber_serie" class="java.lang.String"/>
+	<field name="cc_terceirosdocumentos_cnpj" class="java.lang.String"/>
+	<field name="cc_terceirosdocumentos_ie" class="java.lang.String"/>
+	<field name="cc_terceirosdocumentos_cpf" class="java.lang.String"/>
+	<field name="cc_titulosareceber_praca" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="394"  isSplitAllowed="true" >
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="90"
+						width="447"
+						height="16"
+						forecolor="#FFFFFF"
+						backcolor="#999999"
+						key="rectangle-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="98"
+						y="6"
+						width="140"
+						height="13"
+						key="staticText-1"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Marques e Agliardi Ltda.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="99"
+						y="19"
+						width="139"
+						height="14"
+						key="staticText-2"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[Est BR 101, 2010 Km 98]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="99"
+						y="30"
+						width="139"
+						height="14"
+						key="staticText-3"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[CEP 95520-000 Osório - RS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="99"
+						y="40"
+						width="139"
+						height="14"
+						key="staticText-4"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[Fone (51) 3663-6363]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="260"
+						y="16"
+						width="170"
+						height="14"
+						key="staticText-5"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[Site www.hdhidroquimica.com.br]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="260"
+						y="30"
+						width="189"
+						height="14"
+						key="staticText-6"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[comercial@hdhidroquimica.com.br]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="99"
+						y="51"
+						width="139"
+						height="14"
+						key="staticText-7"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[CNPJ 06.263.956/0001-62]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="99"
+						y="62"
+						width="139"
+						height="14"
+						key="staticText-8"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[IE 087/0099280]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="260"
+						y="60"
+						width="55"
+						height="14"
+						key="staticText-9"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Emissão]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yy" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="315"
+						y="60"
+						width="76"
+						height="13"
+						key="textField-1"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_titulosareceber_emissao}]]></textFieldExpression>
+				</textField>
+				<rectangle radius="1" >
+					<reportElement
+						mode="Transparent"
+						x="0"
+						y="90"
+						width="446"
+						height="54"
+						key="rectangle-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="452"
+						y="90"
+						width="83"
+						height="83"
+						key="rectangle-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<line direction="TopDown">
+					<reportElement
+						x="1"
+						y="121"
+						width="384"
+						height="0"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="105"
+						width="446"
+						height="0"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="390"
+						y="94"
+						width="55"
+						height="11"
+						forecolor="#FFFFFF"
+						key="staticText-10"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[VENCIMENTO]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="385"
+						y="90"
+						width="0"
+						height="54"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="70"
+						y="94"
+						width="55"
+						height="11"
+						forecolor="#FFFFFF"
+						key="staticText-11"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[FATURA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="259"
+						y="94"
+						width="55"
+						height="11"
+						forecolor="#FFFFFF"
+						key="staticText-12"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[DUPLICATA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="17"
+						y="109"
+						width="55"
+						height="11"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Valor R$]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="111"
+						y="109"
+						width="55"
+						height="11"
+						key="staticText-14"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Nº de Ordem]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="215"
+						y="109"
+						width="55"
+						height="11"
+						key="staticText-15"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Valor R$]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="312"
+						y="109"
+						width="55"
+						height="11"
+						key="staticText-16"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Nº de Ordem]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="88"
+						y="106"
+						width="0"
+						height="38"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="181"
+						y="90"
+						width="0"
+						height="54"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="283"
+						y="106"
+						width="0"
+						height="38"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="469"
+						y="94"
+						width="52"
+						height="20"
+						key="staticText-17"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Para uso da instituição financeira]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="149"
+						width="446"
+						height="24"
+						key="rectangle-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="4"
+						y="157"
+						width="77"
+						height="11"
+						key="staticText-18"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Condições especiais]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="174"
+						y="157"
+						width="77"
+						height="11"
+						key="staticText-19"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[desconto até]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="353"
+						y="157"
+						width="32"
+						height="11"
+						key="staticText-20"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[até]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="1"
+						y="179"
+						width="124"
+						height="187"
+						key="rectangle-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="10"
+						y="192"
+						width="15"
+						height="119"
+						key="staticText-21"/>
+					<box></box>
+					<textElement textAlignment="Justified" rotation="Left">
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[MARQUES E AGLIARDI LTDA.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="95"
+						y="209"
+						width="16"
+						height="93"
+						key="staticText-22"/>
+					<box></box>
+					<textElement rotation="Left">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Assinatura do emitente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="9"
+						y="349"
+						width="107"
+						height="11"
+						key="staticText-23"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[DATA DO ACEITE:     /    /]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="132"
+						y="179"
+						width="403"
+						height="117"
+						key="rectangle-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="132"
+						y="302"
+						width="403"
+						height="64"
+						key="rectangle-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="138"
+						y="184"
+						width="77"
+						height="13"
+						key="staticText-24"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[NOME DO SACADO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="138"
+						y="197"
+						width="77"
+						height="13"
+						key="staticText-25"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[ENDEREÇO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="138"
+						y="210"
+						width="77"
+						height="13"
+						key="staticText-26"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="138"
+						y="223"
+						width="77"
+						height="13"
+						key="staticText-27"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[PRAÇA DO PAGTO.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="138"
+						y="236"
+						width="77"
+						height="13"
+						key="staticText-28"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[CNPJ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="138"
+						y="249"
+						width="77"
+						height="13"
+						key="staticText-29"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[CPF]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="376"
+						y="209"
+						width="28"
+						height="13"
+						key="staticText-30"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[CEP]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="462"
+						y="209"
+						width="38"
+						height="13"
+						key="staticText-31"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[ESTADO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="376"
+						y="236"
+						width="28"
+						height="13"
+						key="staticText-32"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[IE]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="133"
+						y="266"
+						width="402"
+						height="1"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="201"
+						y="267"
+						width="0"
+						height="29"
+						key="line-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="138"
+						y="273"
+						width="60"
+						height="19"
+						key="staticText-33"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[VALOR POR EXTENSO
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="136"
+						y="304"
+						width="38"
+						height="12"
+						key="staticText-34"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[PEDIDO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="328"
+						y="304"
+						width="38"
+						height="12"
+						key="staticText-35"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="136"
+						y="316"
+						width="393"
+						height="24"
+						key="staticText-36"/>
+					<box></box>
+					<textElement textAlignment="Justified">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Reconheço(emos) a exatidão desta duplicata de VENDA MERCANTIL na importância acima que pagarei(emos) à MARQUES E AGLIARDI LTDA. ou à sua ordem na praça e vencimentos indicados. Na falta de pagamento cobrar-se-á juros de 5% ao mês após o vencimento.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="396"
+						y="355"
+						width="83"
+						height="10"
+						key="staticText-37"/>
+					<box></box>
+					<textElement textAlignment="Justified">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Assinatura do Sacado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="138"
+						y="355"
+						width="121"
+						height="10"
+						key="staticText-38"/>
+					<box></box>
+					<textElement textAlignment="Justified">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Em:      /    /       (Data do aceite)]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="9"
+						y="127"
+						width="65"
+						height="11"
+						key="textField-2"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_titulosareceber_valor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="0000000" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="108"
+						y="127"
+						width="36"
+						height="11"
+						key="textField-3"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[Integer.valueOf($F{cc_titulosareceber_numero})]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yy" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="388"
+						y="120"
+						width="55"
+						height="11"
+						key="textField-6"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_titulosareceber_vencimentodata}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="215"
+						y="183"
+						width="313"
+						height="11"
+						key="textField-10"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_terceiros_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="214"
+						y="196"
+						width="313"
+						height="11"
+						key="textField-11"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_titulosareceber_enderecosacado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="215"
+						y="209"
+						width="152"
+						height="11"
+						key="textField-12"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_titulosareceber_cidadesacado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="403"
+						y="208"
+						width="51"
+						height="11"
+						key="textField-13"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_titulosareceber_cepsacado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="500"
+						y="208"
+						width="28"
+						height="11"
+						key="textField-14"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_titulosareceber_ufsacado}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="215"
+						y="235"
+						width="152"
+						height="11"
+						key="textField-16"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_terceirosdocumentos_cnpj}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="406"
+						y="235"
+						width="118"
+						height="11"
+						key="textField-17"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_terceirosdocumentos_ie}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="215"
+						y="248"
+						width="152"
+						height="11"
+						key="textField-18"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_terceirosdocumentos_cpf}]]></textFieldExpression>
+				</textField>
+				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="20"
+						width="94"
+						height="42"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA["report/templates/logotipo.jpg"]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="206"
+						y="270"
+						width="323"
+						height="23"
+						key="textField-19"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["(" + (new br.com.codigocerto.conversores.Extenso($F{cc_titulosareceber_valor})).toString().toUpperCase() + ")"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="144"
+						y="127"
+						width="11"
+						height="11"
+						key="textField-20"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Integer"><![CDATA[$F{cc_titulosareceber_parcela}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="155"
+						y="127"
+						width="9"
+						height="11"
+						key="textField-21"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_titulosareceber_serie}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="215"
+						y="222"
+						width="306"
+						height="11"
+						key="textField-22"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_titulosareceber_praca}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

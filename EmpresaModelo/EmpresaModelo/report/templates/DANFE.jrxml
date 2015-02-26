@@ -1,0 +1,4319 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="DANFE"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isFloatColumnFooter="true"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="numero" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[numero da nfe]]></parameterDescription>
+	</parameter>
+	<parameter name="serie" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[serie da nfe]]></parameterDescription>
+	</parameter>
+	<parameter name="tipo" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[tipo de movimentacao da nfe]]></parameterDescription>
+	</parameter>
+	<parameter name="chave" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[chave de acesso]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["43090494464914000157550010000000133040071322"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="naturezaOperacao" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[natureza de operacao]]></parameterDescription>
+	</parameter>
+	<parameter name="emitenteIE" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[Inscricao estadual do emitente]]></parameterDescription>
+	</parameter>
+	<parameter name="emitenteCNPJ" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[cnpj do emitente]]></parameterDescription>
+	</parameter>
+	<parameter name="id" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[id completo da nfe]]></parameterDescription>
+	</parameter>
+	<parameter name="destNome" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[nome do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destDocumento" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[documento do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destEndereco" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[endereco do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destBairro" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[bairro do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destCEP" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[cep do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destMunicipio" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[municipio do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destFone" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[fone do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destUF" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[UF do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="destIE" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[inscricao estadual do destinatario]]></parameterDescription>
+	</parameter>
+	<parameter name="emissao" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[data de emissao da nfe]]></parameterDescription>
+	</parameter>
+	<parameter name="saidaEntrada" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[data de saida/entrada da nfe]]></parameterDescription>
+	</parameter>
+	<parameter name="icmsBase" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor total da base de icms]]></parameterDescription>
+	</parameter>
+	<parameter name="icmsValor" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valot total do icms]]></parameterDescription>
+	</parameter>
+	<parameter name="icmsSTBase" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor da base do icms st]]></parameterDescription>
+	</parameter>
+	<parameter name="icmsSTValor" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor do icms st]]></parameterDescription>
+	</parameter>
+	<parameter name="valorProdutos" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor total dos produtos]]></parameterDescription>
+	</parameter>
+	<parameter name="valorFrete" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor total do frete]]></parameterDescription>
+	</parameter>
+	<parameter name="valorSeguro" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valorDesconto]]></parameterDescription>
+	</parameter>
+	<parameter name="outras" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor de outras despesas acessorias]]></parameterDescription>
+	</parameter>
+	<parameter name="ipiValor" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor total do ipi]]></parameterDescription>
+	</parameter>
+	<parameter name="valorTotal" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[valor total da nota]]></parameterDescription>
+	</parameter>
+	<parameter name="transpNome" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[nome do transportador]]></parameterDescription>
+	</parameter>
+	<parameter name="modFrete" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[modalidade do frete]]></parameterDescription>
+	</parameter>
+	<parameter name="veiculoPlaca" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[placa do veiculo]]></parameterDescription>
+	</parameter>
+	<parameter name="veiculoUF" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[uf do veiculo]]></parameterDescription>
+	</parameter>
+	<parameter name="transpDocumento" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[documento do transportador]]></parameterDescription>
+	</parameter>
+	<parameter name="transpEndereco" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[endereco do transportador]]></parameterDescription>
+	</parameter>
+	<parameter name="transpMunicipio" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[municipio do transportador]]></parameterDescription>
+	</parameter>
+	<parameter name="transpUF" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[uf do transportador]]></parameterDescription>
+	</parameter>
+	<parameter name="transpIE" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[inscricao estadual do transportador]]></parameterDescription>
+	</parameter>
+	<parameter name="volQuantidade" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[quantidade de volumes]]></parameterDescription>
+	</parameter>
+	<parameter name="volEspecie" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[especie dos volumes]]></parameterDescription>
+	</parameter>
+	<parameter name="volMarca" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[marca dos volumes]]></parameterDescription>
+	</parameter>
+	<parameter name="volNumeracao" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[numeracao dos volumes]]></parameterDescription>
+	</parameter>
+	<parameter name="pesoBruto" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[peso bruto dos volumes]]></parameterDescription>
+	</parameter>
+	<parameter name="pesoLiquido" isForPrompting="false" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[peso liquido dos volumes]]></parameterDescription>
+	</parameter>
+	<parameter name="infoComplementares" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[informacoes complementares]]></parameterDescription>
+	</parameter>
+	<parameter name="parcela1" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela2" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela3" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela4" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela5" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela6" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela7" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela8" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela9" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela10" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela11" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela12" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela13" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela14" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="parcela15" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto1" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto2" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto3" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto4" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto5" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto6" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto7" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto8" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto9" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto10" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto11" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto12" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto13" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto14" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vencto15" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="valor1" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor2" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor3" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor4" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor5" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor6" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor7" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor8" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor9" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor10" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor11" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor12" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor13" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor14" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="valor15" isForPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="infoFisco" isForPrompting="false" class="java.lang.String">
+		<parameterDescription><![CDATA[informacoes para o fisco]]></parameterDescription>
+	</parameter>
+	<parameter name="protocolo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="chaveFormatada" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[select * 
+from cc_notasfiscaisemitidasitem
+where cc_notasfiscaisemitidasitem_notasfiscaisemitidasinfo_id = (
+select cc_notasfiscaisemitidasinfo_id
+from cc_notasfiscaisemitidasinfo
+where cc_notasfiscaisemitidasinfo_notasfiscaisemitidas_id = $P{id});]]></queryString>
+
+	<field name="cc_notasfiscaisemitidasitem_id" class="java.lang.Long"/>
+	<field name="cc_notasfiscaisemitidasitem_notasfiscaisemitidasinfo_id" class="java.lang.Long"/>
+	<field name="cc_notasfiscaisemitidasitem_numero" class="java.lang.Integer"/>
+	<field name="cc_notasfiscaisemitidasitem_info" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_codigo" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_descricao" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_ncm" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_cfop" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_unidade" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_quantidade" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_valorunitario" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_valortotal" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_frete" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_valordesconto" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_origem" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_icmscst" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_icmsbase" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_icmsbasereducao" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_icmspercentual" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_icmsstbase" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_icmsstvalor" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_icmsstpercentual" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_ipicst" class="java.lang.String"/>
+	<field name="cc_notasfiscaisemitidasitem_ipibase" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_ipivalor" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_ipipercentual" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_pisbase" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_pisvalor" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_pispercentual" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_cofinsbase" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_cofinsvalor" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_cofinspercentual" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_iibase" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_iivalor" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_iidespesa" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_iiiof" class="java.math.BigDecimal"/>
+	<field name="cc_notasfiscaisemitidasitem_icmsvalor" class="java.math.BigDecimal"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="50"  isSplitAllowed="true" >
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="0"
+						width="420"
+						height="20"
+						key="rectangle-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="2"
+						width="417"
+						height="7"
+						key="staticText-1"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[RECEBEMOS DE MARQUES E AGLIARDI LTDA. OS PRODUTOS/SERVIÇOS CONSTANTES DA NOTA FISCAL INDICADA AO LADO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="420"
+						y="0"
+						width="115"
+						height="40"
+						key="rectangle-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="20"
+						width="143"
+						height="20"
+						key="rectangle-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="21"
+						width="134"
+						height="7"
+						key="staticText-2"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[DATA DE RECEBIMENTO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="143"
+						y="20"
+						width="277"
+						height="20"
+						key="rectangle-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="146"
+						y="21"
+						width="175"
+						height="7"
+						key="staticText-3"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[IDENTIFICAÇÃO E ASSINATURA DO RECEBEDOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="425"
+						y="2"
+						width="16"
+						height="9"
+						key="staticText-4"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[NF-e]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="445"
+						y="11"
+						width="12"
+						height="9"
+						key="staticText-5"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Nº]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="441"
+						y="25"
+						width="20"
+						height="9"
+						key="staticText-6"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[SÉRIE:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="466"
+						y="8"
+						width="62"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="465"
+						y="22"
+						width="50"
+						height="16"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{serie}]]></textFieldExpression>
+				</textField>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="364"  isSplitAllowed="true" >
+				<rectangle radius="1" >
+					<reportElement
+						x="293"
+						y="0"
+						width="241"
+						height="91"
+						key="rectangle-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="296"
+						y="45"
+						width="233"
+						height="26"
+						key="rectangle-75"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="0"
+						width="182"
+						height="91"
+						key="rectangle-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<image  vAlign="Middle" hAlign="Center" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="36"
+						width="88"
+						height="50"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA["report/templates/logotipo.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="3"
+						y="3"
+						width="174"
+						height="28"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[MARQUES E AGLIARDI LTDA.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="57"
+						y="39"
+						width="120"
+						height="10"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="8" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[BR101 Km 98, 2010 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="74"
+						y="49"
+						width="103"
+						height="10"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="8" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[Costa Verde]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="92"
+						y="69"
+						width="85"
+						height="10"
+						key="staticText-12"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="8" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[Osório - RS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="84"
+						y="79"
+						width="94"
+						height="10"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="8" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[Fone/Fax (51) 36636363]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="296"
+						y="2"
+						width="110"
+						height="8"
+						key="staticText-14"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CONTROLE DO FISCO]]></text>
+				</staticText>
+				<image  scaleImage="RetainShape" vAlign="Top" hAlign="Left" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="296"
+						y="11"
+						width="233"
+						height="32"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="barcode-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch" fill="Solid" />
+					<imageExpression class="java.awt.Image"><![CDATA[it.businesslogic.ireport.barcode.BcImage.getBarcodeImage(13,$P{chave},false,false,null,0,140)]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="189"
+						y="0"
+						width="99"
+						height="14"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[DANFE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="184"
+						y="14"
+						width="109"
+						height="13"
+						key="staticText-16"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[DOCUMENTO AUXILIAR DA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="184"
+						y="23"
+						width="109"
+						height="13"
+						key="staticText-17"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[NOTA FISCAL ELETRÔNICA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="189"
+						y="44"
+						width="48"
+						height="13"
+						key="staticText-18"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="8" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[1-SAÍDA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="189"
+						y="35"
+						width="48"
+						height="13"
+						key="staticText-19"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="8" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[0-ENTRADA]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="242"
+						y="35"
+						width="24"
+						height="16"
+						key="rectangle-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="193"
+						y="57"
+						width="12"
+						height="9"
+						key="staticText-20"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Nº]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="190"
+						y="69"
+						width="20"
+						height="9"
+						key="staticText-21"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[SÉRIE:]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="91"
+						width="534"
+						height="18"
+						key="rectangle-9"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="2"
+						y="92"
+						width="126"
+						height="8"
+						key="staticText-22"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[NATUREZA DA OPERAÇÃO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="109"
+						width="92"
+						height="18"
+						key="rectangle-10"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="110"
+						width="68"
+						height="8"
+						key="staticText-23"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[INSCRIÇÃO ESTADUAL]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="92"
+						y="109"
+						width="107"
+						height="18"
+						key="rectangle-11"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="95"
+						y="110"
+						width="98"
+						height="8"
+						key="staticText-24"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[INSCRIÇÃO ESTADUAL DO SUBST. TRIBUTÁRIO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="199"
+						y="109"
+						width="94"
+						height="18"
+						key="rectangle-12"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="202"
+						y="110"
+						width="68"
+						height="8"
+						key="staticText-25"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CNPJ]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="293"
+						y="109"
+						width="241"
+						height="18"
+						key="rectangle-13"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="296"
+						y="110"
+						width="233"
+						height="8"
+						key="staticText-26"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[PROTOCOLO DE AUTORIZAÇÃO DE USO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="132"
+						width="99"
+						height="9"
+						key="staticText-27"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[DESTINATÁRIO/REMETENTE]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="141"
+						width="321"
+						height="18"
+						key="rectangle-14"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="142"
+						width="68"
+						height="8"
+						key="staticText-28"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[NOME/RAZÃO SOCIAL]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="321"
+						y="141"
+						width="85"
+						height="18"
+						key="rectangle-15"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="324"
+						y="142"
+						width="68"
+						height="8"
+						key="staticText-29"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CNPJ/CPF]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="430"
+						y="141"
+						width="104"
+						height="18"
+						key="rectangle-16"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="433"
+						y="142"
+						width="68"
+						height="8"
+						key="staticText-30"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[DATA DA EMISSÃO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="159"
+						width="266"
+						height="18"
+						key="rectangle-17"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="160"
+						width="68"
+						height="8"
+						key="staticText-31"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[ENDEREÇO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="266"
+						y="159"
+						width="84"
+						height="18"
+						key="rectangle-18"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="350"
+						y="159"
+						width="56"
+						height="18"
+						key="rectangle-19"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="430"
+						y="159"
+						width="104"
+						height="18"
+						key="rectangle-20"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="177"
+						width="143"
+						height="18"
+						key="rectangle-21"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="143"
+						y="177"
+						width="113"
+						height="18"
+						key="rectangle-22"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="256"
+						y="177"
+						width="32"
+						height="18"
+						key="rectangle-23"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="288"
+						y="177"
+						width="118"
+						height="18"
+						key="rectangle-24"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="430"
+						y="177"
+						width="104"
+						height="18"
+						key="rectangle-25"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="269"
+						y="160"
+						width="68"
+						height="8"
+						key="staticText-32"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[BAIRRO/DISTRITO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="353"
+						y="160"
+						width="45"
+						height="8"
+						key="staticText-33"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CEP]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="433"
+						y="160"
+						width="96"
+						height="8"
+						key="staticText-34"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[DATA DE SAÍDA/ENTRADA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="3"
+						y="178"
+						width="68"
+						height="8"
+						key="staticText-35"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="145"
+						y="178"
+						width="68"
+						height="8"
+						key="staticText-36"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[FONE/FAX]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="259"
+						y="178"
+						width="21"
+						height="8"
+						key="staticText-37"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[UF]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="291"
+						y="178"
+						width="101"
+						height="8"
+						key="staticText-38"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[INSCRIÇÃO ESTADUAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="433"
+						y="178"
+						width="96"
+						height="8"
+						key="staticText-39"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[HORA DE SAÍDA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="202"
+						width="99"
+						height="9"
+						key="staticText-40"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[FATURA]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="211"
+						width="535"
+						height="32"
+						key="rectangle-26"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="0"
+						y="249"
+						width="99"
+						height="9"
+						key="staticText-41"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[CÁLCULO DO IMPOSTO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="258"
+						width="107"
+						height="18"
+						key="rectangle-27"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="259"
+						width="89"
+						height="8"
+						key="staticText-42"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[BASE DE CÁLCULO DE ICMS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="107"
+						y="258"
+						width="107"
+						height="18"
+						key="rectangle-28"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="110"
+						y="259"
+						width="89"
+						height="8"
+						key="staticText-43"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR DO ICMS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="214"
+						y="258"
+						width="107"
+						height="18"
+						key="rectangle-29"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="217"
+						y="259"
+						width="89"
+						height="8"
+						key="staticText-44"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[BASE DE CÁLCULO DE ICMS SUBSTITUIÇÃO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="321"
+						y="258"
+						width="107"
+						height="18"
+						key="rectangle-30"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="324"
+						y="259"
+						width="89"
+						height="8"
+						key="staticText-45"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR DO ICMS SUBSTITUIÇÃO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="428"
+						y="258"
+						width="107"
+						height="18"
+						key="rectangle-31"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="431"
+						y="259"
+						width="89"
+						height="8"
+						key="staticText-46"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR TOTAL DOS PRODUTOS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="428"
+						y="276"
+						width="107"
+						height="18"
+						key="rectangle-32"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="431"
+						y="277"
+						width="89"
+						height="8"
+						key="staticText-47"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR TOTAL DA NOTA]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="276"
+						width="95"
+						height="18"
+						key="rectangle-33"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="277"
+						width="89"
+						height="8"
+						key="staticText-48"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR DO FRETE]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="95"
+						y="276"
+						width="95"
+						height="18"
+						key="rectangle-34"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="98"
+						y="277"
+						width="89"
+						height="8"
+						key="staticText-49"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR DO SEGURO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="190"
+						y="276"
+						width="76"
+						height="18"
+						key="rectangle-35"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="193"
+						y="277"
+						width="66"
+						height="8"
+						key="staticText-50"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[DESCONTO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="266"
+						y="276"
+						width="76"
+						height="18"
+						key="rectangle-36"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="269"
+						y="277"
+						width="66"
+						height="8"
+						key="staticText-51"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[OUTRAS DESPESAS ACESSÓRIAS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="342"
+						y="276"
+						width="86"
+						height="18"
+						key="rectangle-37"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="345"
+						y="277"
+						width="66"
+						height="8"
+						key="staticText-52"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR DO IPI]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="299"
+						width="182"
+						height="9"
+						key="staticText-53"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[TRANSPORTADOR/VOLUMES TRANSPORTADOS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="308"
+						width="182"
+						height="18"
+						key="rectangle-38"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="182"
+						y="308"
+						width="98"
+						height="18"
+						key="rectangle-39"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="280"
+						y="308"
+						width="70"
+						height="18"
+						key="rectangle-40"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="350"
+						y="308"
+						width="70"
+						height="18"
+						key="rectangle-41"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="420"
+						y="308"
+						width="30"
+						height="18"
+						key="rectangle-42"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="450"
+						y="308"
+						width="85"
+						height="18"
+						key="rectangle-43"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="326"
+						width="230"
+						height="18"
+						key="rectangle-44"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="230"
+						y="326"
+						width="162"
+						height="18"
+						key="rectangle-45"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="392"
+						y="326"
+						width="28"
+						height="18"
+						key="rectangle-46"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="420"
+						y="326"
+						width="115"
+						height="18"
+						key="rectangle-47"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="344"
+						width="71"
+						height="18"
+						key="rectangle-48"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="71"
+						y="344"
+						width="99"
+						height="18"
+						key="rectangle-49"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="170"
+						y="344"
+						width="118"
+						height="18"
+						key="rectangle-50"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="288"
+						y="344"
+						width="104"
+						height="18"
+						key="rectangle-51"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="392"
+						y="344"
+						width="70"
+						height="18"
+						key="rectangle-52"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="462"
+						y="344"
+						width="73"
+						height="18"
+						key="rectangle-53"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="309"
+						width="167"
+						height="8"
+						key="staticText-54"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[RAZÃO SOCIAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="185"
+						y="309"
+						width="57"
+						height="8"
+						key="staticText-55"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[FRETE POR CONTA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="283"
+						y="309"
+						width="67"
+						height="8"
+						key="staticText-56"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CÓDIGO ANTT]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="353"
+						y="309"
+						width="61"
+						height="8"
+						key="staticText-57"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[PLACA DO VEÍCULO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="423"
+						y="308"
+						width="16"
+						height="8"
+						key="staticText-58"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[UF]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="453"
+						y="308"
+						width="42"
+						height="8"
+						key="staticText-59"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CNPJ/CPF]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="3"
+						y="327"
+						width="221"
+						height="8"
+						key="staticText-60"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[ENDEREÇO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="233"
+						y="327"
+						width="146"
+						height="8"
+						key="staticText-61"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[MUNICÍPIO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="395"
+						y="327"
+						width="19"
+						height="8"
+						key="staticText-62"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[UF]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="423"
+						y="327"
+						width="106"
+						height="8"
+						key="staticText-63"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[INSCRIÇÃO ESTADUAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="3"
+						y="345"
+						width="44"
+						height="8"
+						key="staticText-64"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[QUANTIDADE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="74"
+						y="345"
+						width="44"
+						height="8"
+						key="staticText-65"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[ESPÉCIE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="173"
+						y="345"
+						width="44"
+						height="8"
+						key="staticText-66"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[MARCA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="291"
+						y="345"
+						width="93"
+						height="8"
+						key="staticText-67"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[NUMERAÇÃO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="395"
+						y="345"
+						width="44"
+						height="8"
+						key="staticText-68"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[PESO BRUTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="465"
+						y="345"
+						width="44"
+						height="8"
+						key="staticText-69"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[PESO LÍQUIDO]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="214"
+						y="54"
+						width="62"
+						height="13"
+						key="textField-1"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="215"
+						y="66"
+						width="50"
+						height="13"
+						key="textField-2"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{serie}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="250"
+						y="36"
+						width="10"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{tipo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="300"
+						y="56"
+						width="223"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="9" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{chaveFormatada}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="3"
+						y="98"
+						width="526"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{naturezaOperacao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="115"
+						width="80"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{emitenteIE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="203"
+						y="115"
+						width="90"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{emitenteCNPJ}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="148"
+						width="307"
+						height="13"
+						key="textField-3"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destNome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="166"
+						width="254"
+						height="13"
+						key="textField-4"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destEndereco}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="323"
+						y="148"
+						width="80"
+						height="13"
+						key="textField-5"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destDocumento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="434"
+						y="148"
+						width="94"
+						height="13"
+						key="textField-6"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{emissao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="184"
+						width="132"
+						height="13"
+						key="textField-8"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destMunicipio}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="270"
+						y="166"
+						width="71"
+						height="13"
+						key="textField-9"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destBairro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="354"
+						y="166"
+						width="43"
+						height="13"
+						key="textField-10"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destCEP}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="145"
+						y="184"
+						width="105"
+						height="13"
+						key="textField-11"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destFone}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="260"
+						y="184"
+						width="19"
+						height="13"
+						key="textField-12"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destUF}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="184"
+						width="105"
+						height="13"
+						key="textField-13"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{destIE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="7"
+						y="264"
+						width="95"
+						height="13"
+						key="textField-14"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{icmsBase}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="110"
+						y="265"
+						width="95"
+						height="13"
+						key="textField-15"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{icmsValor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="218"
+						y="265"
+						width="95"
+						height="13"
+						key="textField-16"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{icmsSTBase}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="325"
+						y="265"
+						width="95"
+						height="13"
+						key="textField-17"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{icmsSTValor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="432"
+						y="265"
+						width="95"
+						height="13"
+						key="textField-18"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valorProdutos}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="282"
+						width="86"
+						height="13"
+						key="textField-19"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valorFrete}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="99"
+						y="283"
+						width="86"
+						height="13"
+						key="textField-20"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valorSeguro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="195"
+						y="283"
+						width="63"
+						height="13"
+						key="textField-21"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valorSeguro}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="270"
+						y="283"
+						width="63"
+						height="13"
+						key="textField-22"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{outras}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="347"
+						y="283"
+						width="72"
+						height="13"
+						key="textField-23"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{ipiValor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="432"
+						y="283"
+						width="96"
+						height="13"
+						key="textField-24"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valorTotal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="5"
+						y="315"
+						width="171"
+						height="12"
+						key="textField-25"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{transpNome}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="187"
+						y="316"
+						width="29"
+						height="6"
+						key="staticText-93"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="4" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[0-EMITENTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="187"
+						y="320"
+						width="37"
+						height="6"
+						key="staticText-94"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="4" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[1-DESTINATÁRIO
+]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="244"
+						y="311"
+						width="24"
+						height="12"
+						key="rectangle-74"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="251"
+						y="311"
+						width="10"
+						height="12"
+						key="textField-26"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{modFrete}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="354"
+						y="315"
+						width="59"
+						height="12"
+						key="textField-27"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{veiculoPlaca}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="427"
+						y="315"
+						width="18"
+						height="12"
+						key="textField-28"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{veiculoUF}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="454"
+						y="315"
+						width="80"
+						height="12"
+						key="textField-29"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{transpDocumento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="333"
+						width="219"
+						height="12"
+						key="textField-30"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{transpEndereco}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="235"
+						y="333"
+						width="149"
+						height="12"
+						key="textField-31"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{transpMunicipio}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="397"
+						y="333"
+						width="18"
+						height="12"
+						key="textField-32"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{transpUF}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="425"
+						y="333"
+						width="103"
+						height="12"
+						key="textField-33"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{transpIE}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="2"
+						y="351"
+						width="63"
+						height="12"
+						key="textField-34"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{volQuantidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.000" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="396"
+						y="351"
+						width="63"
+						height="12"
+						key="textField-35"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{pesoBruto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.000" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="466"
+						y="351"
+						width="63"
+						height="12"
+						key="textField-36"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{pesoLiquido}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="75"
+						y="351"
+						width="89"
+						height="12"
+						key="textField-37"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{volEspecie}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="174"
+						y="351"
+						width="105"
+						height="12"
+						key="textField-38"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{volMarca}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="292"
+						y="351"
+						width="93"
+						height="12"
+						key="textField-39"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{volNumeracao}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="4"
+						y="212"
+						width="18"
+						height="8"
+						key="staticText-95"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[PRC]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="26"
+						y="212"
+						width="49"
+						height="8"
+						key="staticText-96"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VENCIMENTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="92"
+						y="212"
+						width="30"
+						height="8"
+						key="staticText-97"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VALOR]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="219"
+						width="19"
+						height="13"
+						key="textField-55"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="28"
+						y="219"
+						width="43"
+						height="13"
+						key="textField-56"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="74"
+						y="219"
+						width="49"
+						height="13"
+						key="textField-57"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="231"
+						width="19"
+						height="13"
+						key="textField-58"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="28"
+						y="231"
+						width="43"
+						height="13"
+						key="textField-59"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="73"
+						y="231"
+						width="50"
+						height="13"
+						key="textField-60"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="187"
+						y="79"
+						width="69"
+						height="13"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-100"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["PÁGINA " + $V{PAGE_NUMBER} + " DE "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="259"
+						y="79"
+						width="19"
+						height="13"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-101"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="126"
+						y="212"
+						width="18"
+						height="8"
+						key="staticText-98"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[PRC]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="148"
+						y="212"
+						width="49"
+						height="8"
+						key="staticText-99"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VENCIMENTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="214"
+						y="212"
+						width="30"
+						height="8"
+						key="staticText-100"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VALOR]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="126"
+						y="219"
+						width="19"
+						height="13"
+						key="textField-102"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="150"
+						y="219"
+						width="43"
+						height="13"
+						key="textField-103"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="196"
+						y="219"
+						width="49"
+						height="13"
+						key="textField-104"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="126"
+						y="231"
+						width="19"
+						height="13"
+						key="textField-105"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="150"
+						y="231"
+						width="43"
+						height="13"
+						key="textField-106"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="195"
+						y="231"
+						width="50"
+						height="13"
+						key="textField-107"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor4}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="248"
+						y="219"
+						width="19"
+						height="13"
+						key="textField-108"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="272"
+						y="219"
+						width="43"
+						height="13"
+						key="textField-109"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="318"
+						y="219"
+						width="49"
+						height="13"
+						key="textField-110"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor5}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="248"
+						y="231"
+						width="19"
+						height="13"
+						key="textField-111"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela6}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="272"
+						y="231"
+						width="43"
+						height="13"
+						key="textField-112"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto6}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="317"
+						y="231"
+						width="50"
+						height="13"
+						key="textField-113"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor6}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="248"
+						y="212"
+						width="18"
+						height="8"
+						key="staticText-101"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[PRC]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="270"
+						y="212"
+						width="49"
+						height="8"
+						key="staticText-102"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VENCIMENTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="336"
+						y="212"
+						width="30"
+						height="8"
+						key="staticText-103"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VALOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="372"
+						y="212"
+						width="18"
+						height="8"
+						key="staticText-104"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[PRC]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="394"
+						y="212"
+						width="49"
+						height="8"
+						key="staticText-105"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VENCIMENTO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="460"
+						y="212"
+						width="30"
+						height="8"
+						key="staticText-106"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VALOR]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="372"
+						y="219"
+						width="19"
+						height="13"
+						key="textField-114"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela7}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="396"
+						y="219"
+						width="43"
+						height="13"
+						key="textField-115"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto7}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="442"
+						y="219"
+						width="49"
+						height="13"
+						key="textField-116"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor7}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="372"
+						y="231"
+						width="19"
+						height="13"
+						key="textField-117"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{parcela8}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="396"
+						y="231"
+						width="43"
+						height="13"
+						key="textField-118"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{vencto8}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="441"
+						y="231"
+						width="50"
+						height="13"
+						key="textField-119"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[Boolean.valueOf($V{PAGE_NUMBER}.equals(Integer.valueOf(1)))]]></printWhenExpression>
+						</reportElement>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$P{valor8}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="300"
+						y="49"
+						width="223"
+						height="8"
+						key="staticText-107"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[CHAVE DE ACESSO DA NF-e]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="296"
+						y="73"
+						width="233"
+						height="18"
+						key="staticText-108"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[Credenciado a emitir NF-e - Consulte o "site" da Secretaria da Fazenda na Internet http://www.sefaz.rs.gov.br]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="296"
+						y="115"
+						width="233"
+						height="13"
+						key="textField-120"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{protocolo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="75"
+						y="59"
+						width="103"
+						height="10"
+						key="staticText-109"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="8" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[CEP 95520-000]]></text>
+				</staticText>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="31"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="2"
+						width="182"
+						height="9"
+						key="staticText-70"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[DADOS DO PRODUTO/SERVIÇO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="11"
+						width="47"
+						height="19"
+						key="rectangle-54"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="5"
+						y="17"
+						width="37"
+						height="6"
+						key="staticText-71"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[CÓDIGO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="47"
+						y="11"
+						width="136"
+						height="19"
+						key="rectangle-55"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="65"
+						y="17"
+						width="112"
+						height="6"
+						key="staticText-72"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[DESCRIÇÃO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="182"
+						y="11"
+						width="30"
+						height="19"
+						key="rectangle-56"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="184"
+						y="17"
+						width="27"
+						height="6"
+						key="staticText-73"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[NCM]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="212"
+						y="11"
+						width="18"
+						height="19"
+						key="rectangle-57"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="213"
+						y="17"
+						width="17"
+						height="6"
+						key="staticText-74"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[CST]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="230"
+						y="11"
+						width="21"
+						height="19"
+						key="rectangle-58"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="232"
+						y="17"
+						width="17"
+						height="6"
+						key="staticText-75"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[CFOP]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="251"
+						y="11"
+						width="18"
+						height="19"
+						key="rectangle-59"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="255"
+						y="17"
+						width="10"
+						height="6"
+						key="staticText-76"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[UN]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="269"
+						y="11"
+						width="37"
+						height="19"
+						key="rectangle-60"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="271"
+						y="17"
+						width="34"
+						height="6"
+						key="staticText-77"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[QTD]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="306"
+						y="11"
+						width="37"
+						height="19"
+						key="rectangle-61"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="309"
+						y="17"
+						width="31"
+						height="6"
+						key="staticText-78"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[UNITÁRIO]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="343"
+						y="11"
+						width="42"
+						height="19"
+						key="rectangle-62"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="349"
+						y="17"
+						width="31"
+						height="6"
+						key="staticText-79"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[TOTAL]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="385"
+						y="11"
+						width="45"
+						height="19"
+						key="rectangle-63"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="388"
+						y="17"
+						width="40"
+						height="6"
+						key="staticText-80"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[BASE ICMS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="430"
+						y="11"
+						width="37"
+						height="19"
+						key="rectangle-64"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="432"
+						y="17"
+						width="34"
+						height="6"
+						key="staticText-81"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VALOR ICMS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="467"
+						y="11"
+						width="37"
+						height="19"
+						key="rectangle-65"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="469"
+						y="17"
+						width="34"
+						height="6"
+						key="staticText-82"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[VALOR IPI]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="504"
+						y="11"
+						width="16"
+						height="19"
+						key="rectangle-66"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="520"
+						y="11"
+						width="14"
+						height="19"
+						key="rectangle-67"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="506"
+						y="17"
+						width="11"
+						height="6"
+						key="staticText-83"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[ICMS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="522"
+						y="17"
+						width="10"
+						height="6"
+						key="staticText-84"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="5" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[IPI]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="15"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="0"
+						width="42"
+						height="8"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_notasfiscaisemitidasitem_codigo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="50"
+						y="0"
+						width="131"
+						height="14"
+						key="textField-40"
+						stretchType="RelativeToBandHeight"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_notasfiscaisemitidasitem_descricao} + " " + 
+( $F{cc_notasfiscaisemitidasitem_info} != null  
+? $F{cc_notasfiscaisemitidasitem_info} : "" )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="185"
+						y="0"
+						width="25"
+						height="8"
+						key="textField-41"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_notasfiscaisemitidasitem_ncm}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="213"
+						y="0"
+						width="16"
+						height="8"
+						key="textField-42"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_notasfiscaisemitidasitem_origem}.concat( $F{cc_notasfiscaisemitidasitem_icmscst} )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="234"
+						y="0"
+						width="13"
+						height="8"
+						key="textField-43"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_notasfiscaisemitidasitem_cfop}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="254"
+						y="0"
+						width="13"
+						height="8"
+						key="textField-44"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_notasfiscaisemitidasitem_unidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="273"
+						y="0"
+						width="32"
+						height="8"
+						key="textField-45"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_quantidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="309"
+						y="0"
+						width="32"
+						height="8"
+						key="textField-46"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_valorunitario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="346"
+						y="0"
+						width="34"
+						height="8"
+						key="textField-47"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_valortotal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="389"
+						y="0"
+						width="38"
+						height="8"
+						key="textField-48"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_icmsbase}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="433"
+						y="0"
+						width="32"
+						height="8"
+						key="textField-49"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_icmsvalor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="470"
+						y="0"
+						width="32"
+						height="8"
+						key="textField-50"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_ipivalor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="506"
+						y="0"
+						width="12"
+						height="8"
+						key="textField-51"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_icmspercentual}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="523"
+						y="0"
+						width="8"
+						height="8"
+						key="textField-52"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_notasfiscaisemitidasitem_ipipercentual}]]></textFieldExpression>
+				</textField>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-17"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="47"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-18"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="182"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-19"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="212"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-20"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="230"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-21"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="251"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-22"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="269"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-23"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="306"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-24"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="343"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-25"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="385"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-26"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="430"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-27"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="467"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-28"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="504"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-29"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="520"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-30"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="534"
+						y="-1"
+						width="1"
+						height="10"
+						key="line-31"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="9"
+						width="1"
+						height="5"
+						key="line-32">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="47"
+						y="9"
+						width="1"
+						height="5"
+						key="line-33">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="182"
+						y="9"
+						width="1"
+						height="5"
+						key="line-34">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="212"
+						y="9"
+						width="1"
+						height="5"
+						key="line-35">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="230"
+						y="9"
+						width="1"
+						height="5"
+						key="line-36">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="251"
+						y="9"
+						width="1"
+						height="5"
+						key="line-37">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="269"
+						y="9"
+						width="1"
+						height="5"
+						key="line-38">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="306"
+						y="9"
+						width="1"
+						height="5"
+						key="line-39">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="343"
+						y="9"
+						width="1"
+						height="5"
+						key="line-40">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="385"
+						y="9"
+						width="1"
+						height="5"
+						key="line-41">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="430"
+						y="9"
+						width="1"
+						height="5"
+						key="line-42">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="467"
+						y="9"
+						width="1"
+						height="5"
+						key="line-43">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="504"
+						y="9"
+						width="1"
+						height="5"
+						key="line-44">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="520"
+						y="9"
+						width="1"
+						height="5"
+						key="line-45">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="534"
+						y="9"
+						width="1"
+						height="5"
+						key="line-46">
+							<printWhenExpression><![CDATA[new Boolean(!$F{cc_notasfiscaisemitidasitem_info}.isEmpty())]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="14"
+						width="535"
+						height="1"
+						key="line-16"
+						positionType="Float"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="35"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="5"
+						width="182"
+						height="9"
+						key="staticText-85"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[CÁLCULO DO ISSQN]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="14"
+						width="133"
+						height="18"
+						key="rectangle-68"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="133"
+						y="14"
+						width="133"
+						height="18"
+						key="rectangle-69"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="266"
+						y="14"
+						width="133"
+						height="18"
+						key="rectangle-70"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="399"
+						y="14"
+						width="136"
+						height="18"
+						key="rectangle-71"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="15"
+						width="68"
+						height="8"
+						key="staticText-87"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[INSCRIÇÃO MUNICIPAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="136"
+						y="15"
+						width="120"
+						height="8"
+						key="staticText-88"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR TOTAL DOS SERVIÇOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="269"
+						y="15"
+						width="96"
+						height="8"
+						key="staticText-89"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[BASE DE CÁLCULO DO ISSQN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="402"
+						y="15"
+						width="127"
+						height="8"
+						key="staticText-90"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[VALOR DO ISSQN]]></text>
+				</staticText>
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<lastPageFooter>
+			<band height="129"  isSplitAllowed="false" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="5"
+						width="182"
+						height="9"
+						key="staticText-86"
+						stretchType="RelativeToTallestObject"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font fontName="Times New Roman" pdfFontName="Times-Bold" size="6" isBold="true" isItalic="false"/>
+					</textElement>
+				<text><![CDATA[DADOS ADICIONAIS]]></text>
+				</staticText>
+				<rectangle radius="1" >
+					<reportElement
+						x="0"
+						y="14"
+						width="287"
+						height="114"
+						key="rectangle-72"
+						stretchType="RelativeToTallestObject"
+						positionType="FixRelativeToBottom"
+						isRemoveLineWhenBlank="true"/>
+					<graphicElement stretchType="RelativeToTallestObject"/>
+				</rectangle>
+				<rectangle radius="1" >
+					<reportElement
+						x="288"
+						y="14"
+						width="247"
+						height="114"
+						key="rectangle-73"
+						stretchType="RelativeToTallestObject"
+						positionType="FixRelativeToBottom"
+						isRemoveLineWhenBlank="true"/>
+					<graphicElement stretchType="RelativeToTallestObject"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="3"
+						y="16"
+						width="107"
+						height="8"
+						key="staticText-91"
+						stretchType="RelativeToBandHeight"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[INFORMAÇÕES COMPLEMENTARES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="293"
+						y="16"
+						width="142"
+						height="8"
+						key="staticText-92"
+						stretchType="RelativeToBandHeight"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Italic" size="6" isItalic="true"/>
+					</textElement>
+				<text><![CDATA[RESERVADO AO FISCO]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="3"
+						y="22"
+						width="284"
+						height="101"
+						key="textField-54"
+						stretchType="RelativeToBandHeight"
+						positionType="FixRelativeToBottom"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Times-Roman" size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{infoComplementares} + " " + ( $P{infoFisco} == null ? "" : $P{infoFisco} )]]></textFieldExpression>
+				</textField>
+			</band>
+		</lastPageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

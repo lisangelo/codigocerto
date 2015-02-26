@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="FichaLote"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="2" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="idLote" isForPrompting="true" class="java.lang.String"/>
+	<queryString><![CDATA[select cc_lotes.*, cc_produtos_nome, cc_produtos_descricaotecnica, cc_produtos_id 
+from cc_lotes
+left join cc_view_produtos on cc_produtos_id = cc_lotes_produtos_id
+where cc_lotes_id = $P{idLote}]]></queryString>
+
+	<field name="cc_lotes_id" class="java.lang.Long"/>
+	<field name="cc_lotes_terceiros_id" class="java.lang.Long"/>
+	<field name="cc_lotes_entrada" class="java.sql.Date"/>
+	<field name="cc_lotes_produtos_id" class="java.lang.Long"/>
+	<field name="cc_lotes_origem" class="java.lang.Integer"/>
+	<field name="cc_lotes_quantidade" class="java.math.BigDecimal"/>
+	<field name="cc_lotes_unidadesmedida_id" class="java.lang.Long"/>
+	<field name="cc_lotes_numero" class="java.lang.Long"/>
+	<field name="cc_lotes_ano" class="java.lang.String"/>
+	<field name="cc_lotes_fabricacao" class="java.sql.Date"/>
+	<field name="cc_lotes_validade" class="java.sql.Date"/>
+	<field name="cc_lotes_lotefornecedor" class="java.lang.String"/>
+	<field name="cc_lotes_fabricante" class="java.lang.String"/>
+	<field name="cc_lotes_produtomarca_id" class="java.lang.Long"/>
+	<field name="cc_lotes_tipoproducao" class="java.lang.String"/>
+	<field name="cc_lotes_obs" class="java.lang.String"/>
+	<field name="cc_lotes_obsexibir" class="java.lang.Boolean"/>
+	<field name="cc_produtos_nome" class="java.lang.String"/>
+	<field name="cc_produtos_descricaotecnica" class="java.lang.String"/>
+	<field name="cc_produtos_id" class="java.math.BigInteger"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="92"  isSplitAllowed="true" >
+				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="7"
+						y="7"
+						width="154"
+						height="85"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA["report/templates/logotipo.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="172"
+						y="20"
+						width="348"
+						height="27"
+						key="staticText-1"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Central da Qualidade]]></text>
+				</staticText>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="488"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="58"
+						y="29"
+						width="92"
+						height="27"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Produto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="58"
+						y="112"
+						width="92"
+						height="27"
+						key="staticText-3"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Lote]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="58"
+						y="148"
+						width="92"
+						height="27"
+						key="staticText-4"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Entrada]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="45"
+						y="182"
+						width="105"
+						height="27"
+						key="staticText-5"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Fabricação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="45"
+						y="216"
+						width="105"
+						height="27"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Validade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="45"
+						y="251"
+						width="105"
+						height="27"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Resultado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="6"
+						y="287"
+						width="144"
+						height="27"
+						key="staticText-8"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Lote Fornecedor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="6"
+						y="322"
+						width="144"
+						height="27"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Código produto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="6"
+						y="358"
+						width="144"
+						height="27"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="18" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Observação]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="20"
+						width="360"
+						height="34"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="24"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_produtos_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="56"
+						width="360"
+						height="27"
+						key="textField-1"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Oblique" size="18" isItalic="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_produtos_descricaotecnica}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="112"
+						width="360"
+						height="27"
+						key="textField-2"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[String.valueOf($F{cc_lotes_numero}) + "/" + $F{cc_lotes_ano}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="216"
+						width="110"
+						height="27"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_lotes_validade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="148"
+						width="110"
+						height="27"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_lotes_entrada}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="182"
+						width="110"
+						height="27"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_lotes_fabricacao}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="160"
+						y="251"
+						width="105"
+						height="27"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="18" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Aprovado]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="287"
+						width="360"
+						height="27"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_lotes_lotefornecedor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="322"
+						width="360"
+						height="27"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Number"><![CDATA[$F{cc_produtos_id}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="160"
+						y="358"
+						width="360"
+						height="117"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[( $F{cc_lotes_obsexibir}.booleanValue() ? $F{cc_lotes_obs} : "" )]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

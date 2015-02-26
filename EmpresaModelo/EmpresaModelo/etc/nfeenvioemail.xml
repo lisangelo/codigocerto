@@ -1,0 +1,6 @@
+<NfeEnvioEmail>
+  <SMTP>smtp.cc.com.br</SMTP>
+  <porta>25</porta>
+  <usuario>cc@codigocerto.com.br</usuario>
+  <senha>codigo</senha>
+</NfeEnvioEmail>

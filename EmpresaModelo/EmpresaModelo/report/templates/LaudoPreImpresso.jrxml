@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="LaudoPreImpresso"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="idLote" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[Id do lote]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["1"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="notaSaida" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="produtoNome" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[select cc_lotescaracteristicas.*, cc_terceiros_nome, cc_produtos_nome, cc_produtos_descricaotecnica,
+cc_lotes_numero, cc_lotes_ano, cc_lotes_fabricacao, cc_lotes_validade, cc_lotes_lotefornecedor, cc_lotes_fabricante, 
+cc_caracteristicas_nome, 
+if(cc_lotescaracteristicas_marca, cc_marcascaracteristicas_norma, cc_produtoscaracteristicas_norma) as cc_produtoscaracteristicas_norma, 
+if(cc_lotescaracteristicas_marca, cc_marcascaracteristicas_padrao, cc_produtoscaracteristicas_padrao) as cc_produtoscaracteristicas_padrao
+from cc_lotescaracteristicas
+left join cc_lotes on cc_lotes_id = cc_lotescaracteristicas_lotes_id
+left join cc_terceiros on cc_terceiros_id = cc_lotes_terceiros_id
+left join cc_produtos on cc_produtos_id = cc_lotes_produtos_id
+left join cc_produtoscompl on cc_produtos.cc_produtos_id = cc_produtoscompl.cc_produtos_id
+left join cc_produtoscaracteristicas on cc_produtoscaracteristicas_id = cc_lotescaracteristicas_produtoscaracteristicas_id
+left join cc_marcascaracteristicas on cc_marcascaracteristicas_id = cc_lotescaracteristicas_produtoscaracteristicas_id
+left join cc_caracteristicas on cc_caracteristicas_id = if(cc_lotescaracteristicas_marca, cc_marcascaracteristicas_caracteristicas_id, cc_produtoscaracteristicas_caracteristicas_id)
+where cc_lotescaracteristicas_lotes_id = $P{idLote};]]></queryString>
+
+	<field name="cc_lotescaracteristicas_id" class="java.lang.Long"/>
+	<field name="cc_lotescaracteristicas_lotes_id" class="java.lang.Long"/>
+	<field name="cc_lotescaracteristicas_produtoscaracteristicas_id" class="java.lang.Long"/>
+	<field name="cc_lotescaracteristicas_avaliacao" class="java.lang.String"/>
+	<field name="cc_lotescaracteristicas_marca" class="java.lang.Boolean"/>
+	<field name="cc_lotescaracteristicas_caracteristicasnome" class="java.lang.String"/>
+	<field name="cc_lotescaracteristicas_norma" class="java.lang.String"/>
+	<field name="cc_lotescaracteristicas_padrao" class="java.lang.String"/>
+	<field name="cc_terceiros_nome" class="java.lang.String"/>
+	<field name="cc_produtos_nome" class="java.lang.String"/>
+	<field name="cc_produtos_descricaotecnica" class="java.lang.String"/>
+	<field name="cc_lotes_numero" class="java.lang.Long"/>
+	<field name="cc_lotes_ano" class="java.lang.String"/>
+	<field name="cc_lotes_fabricacao" class="java.sql.Date"/>
+	<field name="cc_lotes_validade" class="java.sql.Date"/>
+	<field name="cc_lotes_lotefornecedor" class="java.lang.String"/>
+	<field name="cc_lotes_fabricante" class="java.lang.String"/>
+	<field name="cc_caracteristicas_nome" class="java.lang.String"/>
+	<field name="cc_produtoscaracteristicas_norma" class="java.lang.String"/>
+	<field name="cc_produtoscaracteristicas_padrao" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="160"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="119"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="81"
+						y="71"
+						width="47"
+						height="16"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.Long"><![CDATA[$F{cc_lotes_numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="128"
+						y="71"
+						width="66"
+						height="16"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["/" + $F{cc_lotes_ano}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="79"
+						y="45"
+						width="295"
+						height="16"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{produtoNome} + ( $F{cc_produtos_descricaotecnica}.isEmpty() ? "" 
+: "(" + $F{cc_produtos_descricaotecnica} + ")")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="279"
+						y="73"
+						width="51"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_lotes_fabricacao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="457"
+						y="73"
+						width="50"
+						height="14"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{cc_lotes_validade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="462"
+						y="44"
+						width="50"
+						height="14"
+						key="textField-2"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{notaSaida}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="44"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="7"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="357"
+						y="0"
+						width="168"
+						height="7"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_lotescaracteristicas_avaliacao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="3"
+						y="0"
+						width="191"
+						height="7"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="7" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_lotescaracteristicas_caracteristicasnome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="200"
+						y="0"
+						width="148"
+						height="7"
+						key="textField-1"/>
+					<box></box>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_lotescaracteristicas_padrao}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="59"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="25"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<lastPageFooter>
+			<band height="201"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="120"
+						y="50"
+						width="237"
+						height="14"
+						key="textField-3"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_lotes_lotefornecedor}]]></textFieldExpression>
+				</textField>
+				<image  evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="357"
+						y="0"
+						width="168"
+						height="48"
+						key="image-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch"/>
+					<imageExpression class="java.lang.String"><![CDATA["report/templates/laudo_assinatura.jpg"]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="120"
+						y="64"
+						width="237"
+						height="14"
+						key="textField-4"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_lotes_fabricante}]]></textFieldExpression>
+				</textField>
+			</band>
+		</lastPageFooter>
+		<summary>
+			<band height="50"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

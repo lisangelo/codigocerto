@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="ComissaoVendedor"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="empresaNome" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[Nome da empresa emissora do relatorio]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["Empresa Teste"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="relatorioTitulo" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[Descricao do relatorio]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["Nome do Relatorio"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="relatorioDetalhe" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[Detalhes do relatorio]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["Detalhes do relatorio"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="relatorioEmissao" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[Data de emissao do relatorio]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["01/01/08"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dataEmissaoInicio" isForPrompting="true" class="java.util.Date">
+		<parameterDescription><![CDATA[data de emissao das notas]]></parameterDescription>
+	</parameter>
+	<parameter name="dataEmissaoFim" isForPrompting="true" class="java.util.Date">
+		<parameterDescription><![CDATA[data de emissao das notas]]></parameterDescription>
+	</parameter>
+	<parameter name="vendedor" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[select cc_notasfiscaisemitidasinfo_serie as serie, cc_notasfiscaisemitidas_numero as numero, cc_notasfiscaisemitidas_emissao as emissao,
+cc_notasfiscaisemitidasinfo_destinatarionome as destinatario,
+sum(cc_notasfiscaisemitidasitem_valortotal) as valortotal,
+cc_cidades_nome, cc_regioesvenda_nome, 
+(select cc_terceiros_nome from cc_terceiros where cc_terceiros_id = cc_regioesvenda_terceiros_id) as representante, cc_regioesvenda_terceiros_id as representante_id,
+(select cc_terceiros_nome from cc_terceiros where cc_terceiros_id = cc_supervisao_supervisor_id) as supervisor, cc_supervisao_supervisor_id
+from cc_notasfiscaisemitidasitem
+left join cc_notasfiscaisemitidasinfo on cc_notasfiscaisemitidasinfo_id = cc_notasfiscaisemitidasitem_notasfiscaisemitidasinfo_id
+left join cc_notasfiscaisemitidas on cc_notasfiscaisemitidas_id = cc_notasfiscaisemitidasinfo_notasfiscaisemitidas_id
+left join cc_cidades on cc_cidades_codigoibge = cc_notasfiscaisemitidasinfo_destinatariomunicipiocodigo
+left join cc_regioescidades on cc_regioescidades_cidades_id = cc_cidades_id
+left join cc_regioesvenda on cc_regioesvenda_id = cc_regioescidades_regioesvenda_id
+left join cc_supervisao on cc_supervisao_regioesvenda_id = cc_regioesvenda_id
+where cc_notasfiscaisemitidasinfo_emissao >= $P{dataEmissaoInicio}  
+and cc_notasfiscaisemitidasinfo_emissao <= $P{dataEmissaoFim} 
+and isnull(cc_notasfiscaisemitidas_situacao)
+and cc_notasfiscaisemitidasitem_cfop in ('5101', '6101', '5401', '6.401')
+and cc_regioesvenda_terceiros_id = $P{vendedor}
+group by cc_notasfiscaisemitidasinfo_id
+order by emissao
+
+]]></queryString>
+
+	<field name="serie" class="java.lang.String"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="emissao" class="java.sql.Date"/>
+	<field name="destinatario" class="java.lang.String"/>
+	<field name="valortotal" class="java.math.BigDecimal"/>
+	<field name="cc_cidades_nome" class="java.lang.String"/>
+	<field name="cc_regioesvenda_nome" class="java.lang.String"/>
+	<field name="representante" class="java.lang.String"/>
+	<field name="representante_id" class="java.lang.Long"/>
+	<field name="supervisor" class="java.lang.String"/>
+	<field name="cc_supervisao_supervisor_id" class="java.lang.Long"/>
+
+	<variable name="totalNF" class="java.math.BigDecimal" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{valortotal}]]></variableExpression>
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="62"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="0"
+						width="261"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Courier New" pdfFontName="Courier-Bold" size="9" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{empresaNome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="33"
+						width="261"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Courier New" pdfFontName="Courier-Bold" size="9" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{relatorioTitulo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="46"
+						width="428"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font fontName="Courier New" pdfFontName="Courier" size="9"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{relatorioDetalhe}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="445"
+						y="46"
+						width="90"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Courier New" pdfFontName="Courier" size="9"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="449"
+						y="33"
+						width="86"
+						height="13"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font fontName="Courier New" pdfFontName="Courier" size="9"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{relatorioEmissao}]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="21"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="82"
+						y="20"
+						width="454"
+						height="0"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="95"
+						y="11"
+						width="35"
+						height="8"
+						key="staticText-12"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Número]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="84"
+						y="11"
+						width="9"
+						height="8"
+						key="staticText-13"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[S]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="132"
+						y="11"
+						width="38"
+						height="8"
+						key="staticText-14"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Emissão]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="179"
+						y="11"
+						width="61"
+						height="8"
+						key="staticText-15"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Destinatário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="454"
+						y="11"
+						width="50"
+						height="8"
+						key="staticText-17"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Total]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="10"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="83"
+						y="0"
+						width="9"
+						height="9"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{serie}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="94"
+						y="0"
+						width="35"
+						height="9"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yy" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="131"
+						y="0"
+						width="43"
+						height="9"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[$F{emissao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="178"
+						y="0"
+						width="262"
+						height="9"
+						key="textField"/>
+					<box></box>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{destinatario}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="454"
+						y="1"
+						width="50"
+						height="9"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font size="6"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{valortotal}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="12"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="20"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="#,##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="454"
+						y="9"
+						width="50"
+						height="9"
+						key="textField-5"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$V{totalNF}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="395"
+						y="8"
+						width="50"
+						height="8"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="6" isBold="true"/>
+					</textElement>
+				<text><![CDATA[TOTAL GERAL]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="5"
+						width="535"
+						height="0"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</summary>
+</jasperReport>

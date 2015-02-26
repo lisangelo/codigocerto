@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : empresabase.xml
+    Created on : 3 de Abril de 2012, 10:03
+    Author     : lis
+    Description:
+        Purpose of the document follows.
+-->
+
+<empresabase>
+    <razao>MODELO</razao>
+    <fantasia>Modelo</fantasia>
+    <cnpj>00000000000000</cnpj>
+    <ie>ISENTO</ie>
+    <endereco>RUA TAL</endereco>
+    <numero>999</numero>
+    <bairro>CENTRO</bairro>
+    <municipiocodigo>000000</municipiocodigo>
+    <municipio>MODELO</municipio>
+    <uf>RS</uf>
+    <cep>99999999</cep>
+    <paiscodigo>00000</paiscodigo>
+    <pais>BRASIL</pais>
+    <fone>0000000000</fone> 
+</empresabase>

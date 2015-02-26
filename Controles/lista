@@ -1,0 +1,7 @@
+rm -rf ./.svn
+rm -rf ./src/.svn
+rm -rf ./src/br/.svn
+rm -rf ./src/br/com/.svn
+rm -rf ./src/br/com/codigocerto/.svn
+rm -rf ./src/br/com/codigocerto/controles/.svn
+rm -rf ./src/br/com/codigocerto/controles/pesquisas/.svn

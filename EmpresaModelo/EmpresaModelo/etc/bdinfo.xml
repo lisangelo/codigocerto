@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : bdinfo.xml
+    Created on : April 15, 2006, 11:39 AM
+    Author     : codigocerto
+    Description:
+        Informacoes para conexao ao banco de dados.
+-->
+
+
+<servidores>
+    
+    <servidor>
+        <tipo>mysql</tipo>
+        <endereco>localhost</endereco>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <bancos>
+            <banco>
+                <nome>cc</nome>
+                <usuario>cc</usuario>
+                <senha>codigo</senha>
+                <transacao>sim</transacao>
+            </banco>
+        </bancos>
+    </servidor>
+    
+</servidores>

@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="FichaTransVermelha"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="535"
+		 pageHeight="842"
+		 columnWidth="491"
+		 columnSpacing="0"
+		 leftMargin="22"
+		 rightMargin="22"
+		 topMargin="28"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="produto" isForPrompting="false" class="java.lang.Long"/>
+	<queryString><![CDATA[select cc_produtos_nome from cc_produtos 
+where cc_produtos_id = $P{produto}]]></queryString>
+
+	<field name="cc_produtos_nome" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="737"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="150"
+						y="4"
+						width="190"
+						height="20"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[FICHA DE EMERGÊNCIA]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="50"
+						y="24"
+						width="390"
+						height="20"
+						key="textField-1"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_produtos_nome}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="50"
+						y="45"
+						width="390"
+						height="35"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font pdfFontName="Helvetica" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Desengraxantes Alcalinos / Ácidos
+Solução Aquosa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="130"
+						y="100"
+						width="0"
+						height="0"
+						key="staticText-4"/>
+					<box></box>
+					<textElement>
+						<font/>
+					</textElement>
+				<text><![CDATA[Texto Estático]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="12"
+						y="82"
+						width="190"
+						height="20"
+						key="staticText-5"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[MARQUES E AGLIARDI LTDA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="12"
+						y="103"
+						width="190"
+						height="37"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Rua:Lateral Br 101 Km 98 nº 2010
+Fone/Fax: (51)3663 6363
+CEP:95520-000 - Osório/RS ]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="141"
+						width="482"
+						height="0"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="2.0"/>
+</graphicElement>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="245"
+						y="80"
+						width="0"
+						height="61"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="1.0"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="295"
+						y="87"
+						width="80"
+						height="12"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Número de Risco:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="295"
+						y="99"
+						width="75"
+						height="12"
+						key="staticText-8"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Número da ONU:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="295"
+						y="111"
+						width="125"
+						height="12"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Classe ou subclasse de Risco:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="295"
+						y="123"
+						width="95"
+						height="12"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Descrição da classe:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="376"
+						y="87"
+						width="50"
+						height="12"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[80]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="372"
+						y="99"
+						width="50"
+						height="12"
+						key="staticText-12"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[1760]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="421"
+						y="111"
+						width="50"
+						height="12"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[8]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="392"
+						y="123"
+						width="50"
+						height="12"
+						key="staticText-14"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Corrosivo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="144"
+						width="50"
+						height="12"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Aspecto:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="62"
+						y="144"
+						width="418"
+						height="12"
+						key="staticText-16"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Líquido límpido de odor característico. ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="155"
+						width="50"
+						height="12"
+						key="staticText-17"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[EPI:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="62"
+						y="155"
+						width="418"
+						height="20"
+						key="staticText-18"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Óculos de segurança herméticos para produtos químicos, luvas de PVC, aventais e botas impermeáveis de PVC, e respirador com filtro para vapores orgânicos.]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="176"
+						width="482"
+						height="0"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="2.0"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="150"
+						y="178"
+						width="190"
+						height="20"
+						key="staticText-19"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[RISCOS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="199"
+						width="50"
+						height="12"
+						key="staticText-20"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Fogo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="63"
+						y="199"
+						width="380"
+						height="12"
+						key="staticText-21"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Não é inflamável.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="209"
+						width="50"
+						height="12"
+						key="staticText-22"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Saúde:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="63"
+						y="209"
+						width="415"
+						height="20"
+						key="staticText-23"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Pode causar eritemas, bolhas na pele e queimaduras se o produto estiver quente. Irrita as mucosas.
+Náuseas e vômitos só em caso de ingestão.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="229"
+						width="70"
+						height="12"
+						key="staticText-24"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Meio Ambiente:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="83"
+						y="229"
+						width="395"
+						height="21"
+						key="staticText-25"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Caso o produto atinja esgotos ou cursos de água, ele será mais pesado do que a água e ficará no fundo até sua diluição.]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="252"
+						width="482"
+						height="0"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="2.0"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="150"
+						y="254"
+						width="190"
+						height="20"
+						key="staticText-26"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" isBold="true"/>
+					</textElement>
+				<text><![CDATA[EM CASO DE ACIDENTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="10"
+						y="275"
+						width="60"
+						height="12"
+						key="staticText-27"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Vazamento:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="105"
+						y="275"
+						width="380"
+						height="12"
+						key="staticText-28"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Afaste todas as fontes de calor e ignição, não fumar, não provocar faíscas.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="80"
+						y="270"
+						width="20"
+						height="20"
+						key="staticText-29"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="80"
+						y="285"
+						width="20"
+						height="20"
+						key="staticText-30"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="105"
+						y="290"
+						width="380"
+						height="20"
+						key="staticText-31"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Manter afastadas pessoas sem função no atendimento da emergência. Sinalizar o perigo para o
+trânsito, e avisar ou mandar avisar as autoridades locais competentes.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="80"
+						y="311"
+						width="20"
+						height="20"
+						key="staticText-32"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="105"
+						y="316"
+						width="380"
+						height="20"
+						key="staticText-33"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Utilizar os equipamentos de proteção individual adequados. Evitar o contato com a pele e os olhos.
+Não respirar os vapores.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="80"
+						y="338"
+						width="20"
+						height="20"
+						key="staticText-34"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="105"
+						y="343"
+						width="380"
+						height="37"
+						key="staticText-35"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Circunscrever as poças com diques de terra, areia ou outro material não combustível. Cobrir o
+vazamento com areia ou similar.Não jogar água. Remover o material contaminado para outro recipiente independente (usar ferramenta anti-faiscante).]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="381"
+						width="482"
+						height="0"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="11"
+						y="389"
+						width="60"
+						height="12"
+						key="staticText-37"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Fogo:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="389"
+						width="380"
+						height="12"
+						key="staticText-38"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Utilizar extintor de dióxido de carbono (CO2), pó químico seco, espuma, neblina de água.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="384"
+						width="20"
+						height="20"
+						key="staticText-39"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="399"
+						width="20"
+						height="20"
+						key="staticText-40"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="404"
+						width="380"
+						height="20"
+						key="staticText-41"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Utilize os equipamentos de proteção recomendados.]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="426"
+						width="482"
+						height="0"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="11"
+						y="434"
+						width="60"
+						height="12"
+						key="staticText-42"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Poluição:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="434"
+						width="380"
+						height="25"
+						key="staticText-43"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Se possível, estancar o vazamento. Em caso de derramamento, circundar as poças com diques de terra, areia, vermiculita ou similar.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="429"
+						width="20"
+						height="20"
+						key="staticText-44"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="462"
+						width="380"
+						height="25"
+						key="staticText-45"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Impedir que o produto ou as águas de atendimento à emergência atinjam cursos d'água, canaletas, bueiros ou galerias de esgoto.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="457"
+						width="20"
+						height="20"
+						key="staticText-46"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="492"
+						width="380"
+						height="25"
+						key="staticText-47"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Observe a direção do vento, e afaste as pessoas do local num raio de 200m nessa direção.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="487"
+						width="20"
+						height="20"
+						key="staticText-48"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="518"
+						width="482"
+						height="0"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="11"
+						y="526"
+						width="60"
+						height="64"
+						key="staticText-49"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Envolvimento de pessoas:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="526"
+						width="380"
+						height="25"
+						key="staticText-50"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[No caso de Inalação: remover a vítima para local arejado. Aplique respiração artificial, se necessário. Obtenha auxílio médico imediato.
+
+]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="521"
+						width="20"
+						height="20"
+						key="staticText-51"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="554"
+						width="380"
+						height="46"
+						key="staticText-52"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[No caso de contato com a pele: se houver contaminação das roupas, retire-as e leve a pessoa
+imediatamente para o chuveiro. Lave o local afetado com água corrente em abundância por 15 
+minutos. Não coloque nenhum medicamento ou produto químicos na pele. Leve a pessoa
+imediatamente ao dermatologista.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="549"
+						width="20"
+						height="20"
+						key="staticText-53"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="606"
+						width="380"
+						height="34"
+						key="staticText-54"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[No caso de contato com os olhos: retire as lentes de contato, se houver. Lave os olhos imediatamente com água corrente e em abundância por 15 minutos. Não coloque nenhum medicamento ou produto químico. Leve a pessoa imediatamente ao oftalmologista.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="601"
+						width="20"
+						height="20"
+						key="staticText-55"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="645"
+						width="380"
+						height="34"
+						key="staticText-56"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[No caso de ingestão: Não provocar vômitos. Se a vítima estiver consciente, dar água ou grande
+quantidade de leite . Leve a pessoa imediatamente ao médico. Não dê nada pela boca a uma pessoa inconsciente. ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="640"
+						width="20"
+						height="20"
+						key="staticText-57"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="6"
+						y="680"
+						width="482"
+						height="0"
+						key="line-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="11"
+						y="688"
+						width="60"
+						height="32"
+						key="staticText-58"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<text><![CDATA[Informações ao médico:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="81"
+						y="683"
+						width="20"
+						height="20"
+						key="staticText-59"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<text><![CDATA[-]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="106"
+						y="688"
+						width="380"
+						height="42"
+						key="staticText-60"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Esse produto contém uma pequena quantidade de um aditivo que, em raras ocasiões pode causar sensibilidade da pele em pessoas hipersensíveis.
+Centro de informações toxicológicas da S.S.M.A/RS
+Fone: (51) 3223-6110 ou 3223-6417 ou 0800-780200]]></text>
+				</staticText>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

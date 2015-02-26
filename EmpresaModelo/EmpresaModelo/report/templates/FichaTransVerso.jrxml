@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="FichaTransVerso"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="535"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="2" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="produto" isForPrompting="false" class="java.lang.Long"/>
+	<queryString><![CDATA[select cc_produtos_nome from cc_produtos 
+where cc_produtos_id = $P{produto}]]></queryString>
+
+	<field name="cc_produtos_nome" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="610"  isSplitAllowed="true" >
+				<rectangle>
+					<reportElement
+						x="70"
+						y="40"
+						width="370"
+						height="90"
+						key="rectangle-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="60"
+						width="369"
+						height="0"
+						key="line-1"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="80"
+						y="40"
+						width="350"
+						height="20"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[TELEFONES ÚTEIS EM TODO O TERRITÓRIO NACIONAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="90"
+						y="69"
+						width="330"
+						height="51"
+						key="staticText-2"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<text><![CDATA[PRÓ-QUÍMICA / ABIQUIM: 0800-118270 (LIGAÇÃO GRATUITA DIA E NOITE)					
+					
+BOMBEIROS: 193					
+					
+DEFESA CIVIL: 199]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement
+						x="70"
+						y="140"
+						width="370"
+						height="409"
+						key="rectangle-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<staticText>
+					<reportElement
+						x="80"
+						y="141"
+						width="350"
+						height="20"
+						key="staticText-3"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[DEFESA CIVIL]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="162"
+						width="369"
+						height="0"
+						key="line-2"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="255"
+						y="163"
+						width="0"
+						height="386"
+						key="line-3"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="74"
+						y="165"
+						width="56"
+						height="20"
+						key="staticText-4"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[REGIÃO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="160"
+						y="165"
+						width="91"
+						height="20"
+						key="staticText-5"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[REGIONAL/ESTADUAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="260"
+						y="165"
+						width="56"
+						height="20"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[REGIÃO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="346"
+						y="165"
+						width="91"
+						height="20"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[REGIONAL/ESTADUAL]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="186"
+						width="369"
+						height="0"
+						key="line-4"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="72"
+						y="188"
+						width="180"
+						height="20"
+						key="staticText-8"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[1 - NORTE]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="209"
+						width="184"
+						height="1"
+						key="line-5"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="74"
+						y="211"
+						width="86"
+						height="107"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top" lineSpacing="Single">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[AMAPÁ 
+
+ACRE
+
+AMAZONAS
+
+PARÁ
+
+RONDÔNIA
+
+RORAIMA
+
+TOCANTINS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="162"
+						y="211"
+						width="88"
+						height="107"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[(0xx96)212-1230
+
+(0xx68)223-3983
+
+(0xx92)663-5929
+
+(0xx91)241-7053
+
+(0xx69)212-0195
+
+(0xx95)623-6505
+
+(0xx63)216-1990]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="344"
+						width="184"
+						height="1"
+						key="line-6"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="72"
+						y="322"
+						width="180"
+						height="20"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[2 - CENTRO-OESTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="74"
+						y="346"
+						width="86"
+						height="83"
+						key="staticText-12"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[DISTRITO FEDERAL
+
+GOIÁS
+
+
+MATO GROSSO
+
+
+MATO GROSSO DO SUL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="169"
+						y="346"
+						width="81"
+						height="83"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[(0xx61)314-8267
+
+(0xx62)526-1811
+(0xx62)526-1810
+
+(0xx65)313-2013
+(0xx65)644-2695
+
+(0xx67)720-1717
+(0xx67)712-1718]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="320"
+						width="184"
+						height="1"
+						key="line-7"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="430"
+						width="184"
+						height="1"
+						key="line-8"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="72"
+						y="432"
+						width="180"
+						height="20"
+						key="staticText-14"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[3 - SUL]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="71"
+						y="454"
+						width="184"
+						height="1"
+						key="line-9"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="74"
+						y="456"
+						width="86"
+						height="54"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[PARANÁ
+
+SANTA CATARINA
+
+RIO GRANDE DO SUL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="169"
+						y="456"
+						width="81"
+						height="54"
+						key="staticText-16"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[(0xx41)350-2707
+
+(0xx48)221-3321
+
+(0xx51)247-1707]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="257"
+						y="188"
+						width="180"
+						height="20"
+						key="staticText-17"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[4 - NORDESTE]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="256"
+						y="209"
+						width="184"
+						height="1"
+						key="line-11"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="259"
+						y="211"
+						width="86"
+						height="158"
+						key="staticText-18"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[ALAGOAS
+
+BAHIA
+
+CEARÁ
+
+MARANHÃO
+
+
+PARAÍBA
+
+
+PERNANBUCO
+
+
+PIAUÍ
+
+RIO GRANDE DO NORTE
+
+SERGIPE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="354"
+						y="211"
+						width="81"
+						height="159"
+						key="staticText-19"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[(0xx81)3416-2131
+
+(0xx71)371-6691
+
+(0xx85)488-5105
+
+(0xx98)228-2014
+(0xx98)228-2291
+
+(0xx83)241-3210
+RAMAL 519
+
+(0xx81)3423-5808
+(0xx81)3425-2185
+
+(0xx86)218-2022
+
+(0xx84)232-1762
+
+(0XX79)214-0008]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="256"
+						y="371"
+						width="184"
+						height="1"
+						key="line-12"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<staticText>
+					<reportElement
+						x="257"
+						y="373"
+						width="180"
+						height="20"
+						key="staticText-20"/>
+					<box></box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font/>
+					</textElement>
+				<text><![CDATA[5 - SUDESTE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="354"
+						y="397"
+						width="81"
+						height="123"
+						key="staticText-21"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[(0xx27)345-0144
+
+(0xx31)3250-2111
+
+(0xx21)399-4100
+
+(0xx11)3745-3333]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="259"
+						y="397"
+						width="86"
+						height="133"
+						key="staticText-22"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+				<text><![CDATA[ESPIRITO SANTO
+
+MINAS GERAIS
+
+RIO DE JANEIRO
+
+SÃO PAULO]]></text>
+				</staticText>
+				<line direction="TopDown">
+					<reportElement
+						x="256"
+						y="395"
+						width="184"
+						height="1"
+						key="line-13"/>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

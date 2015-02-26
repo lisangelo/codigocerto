@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Pedido2Vias"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="842"
+		 pageHeight="595"
+		 columnWidth="782"
+		 columnSpacing="0"
+		 leftMargin="30"
+		 rightMargin="30"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="idPedido" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[codigo do pedido]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["11"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoDocumento" isForPrompting="true" class="java.lang.String">
+		<parameterDescription><![CDATA[nome do documento]]></parameterDescription>
+		<defaultValueExpression ><![CDATA["CNPJ"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="documento" isForPrompting="true" class="java.lang.String">
+		<defaultValueExpression ><![CDATA["6363636363"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="frete" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="origem" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="cidade" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="uf" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vendedor" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="emissao" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="pesoLiquido" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="pesoBruto" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="prazo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="laudo" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="representante" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="faturamento" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="comissao" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="bairro" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="vendaOrdem" isForPrompting="false" class="java.lang.Boolean"/>
+	<parameter name="ordemTipoDoc" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="ordemDocumento" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="ordemCidade" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="ordemUf" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="ordemBairro" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="ordemNome" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[select cc_pedidos.*, cc_pedidositens.*, cc_terceiros_nome, cc_condicoespagamento_nome,
+       cc_unidadesmedida_sigla, cc_view_embalagens.cc_embalagens_nometransporte
+from cc_pedidositens
+left join cc_pedidos on cc_pedidos_id = cc_pedidositens_pedidos_id
+left join cc_terceiros on cc_terceiros_id = cc_pedidos_terceiros_id
+left join cc_condicoespagamento on cc_condicoespagamento_id = cc_pedidos_condicoespagamento_id
+left join cc_unidadesmedida on cc_unidadesmedida_id = cc_pedidositens_unidadesmedida_id
+left join cc_view_embalagens on cc_pedidositens_embalagens_id = cc_view_embalagens.cc_produtos_id
+where cc_pedidos_id = $P{idPedido}]]></queryString>
+
+	<field name="cc_pedidos_id" class="java.lang.Long"/>
+	<field name="cc_pedidos_data" class="java.sql.Date"/>
+	<field name="cc_pedidos_terceiros_id" class="java.lang.Long"/>
+	<field name="cc_pedidos_condicoespagamento_id" class="java.lang.Long"/>
+	<field name="cc_pedidos_valorprodutos" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_valordesconto" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_valorfrete" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_valortotal" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_nomecontato" class="java.lang.String"/>
+	<field name="cc_pedidos_observacao" class="java.lang.String"/>
+	<field name="cc_pedidos_situacao" class="java.lang.Integer"/>
+	<field name="cc_pedidos_tipofrete" class="java.lang.Integer"/>
+	<field name="cc_pedidos_origem" class="java.lang.Integer"/>
+	<field name="cc_pedidos_margem" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_transportadorfrete" class="java.lang.Integer"/>
+	<field name="cc_pedidos_freteincluso" class="java.lang.Boolean"/>
+	<field name="cc_pedidos_transportadorresponsavel" class="java.lang.Integer"/>
+	<field name="cc_pedidos_transportador" class="java.lang.Long"/>
+	<field name="cc_pedidos_representante" class="java.lang.Long"/>
+	<field name="cc_pedidos_representanteexterno" class="java.lang.Long"/>
+	<field name="cc_pedidos_representanteexternocomissao" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_motivocancelamento" class="java.lang.String"/>
+	<field name="cc_pedidos_enviarlaudo" class="java.lang.Boolean"/>
+	<field name="cc_pedidos_ipivalor" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_ordemcompra" class="java.lang.String"/>
+	<field name="cc_pedidos_vendaordem" class="java.lang.Long"/>
+	<field name="cc_pedidos_faturamento" class="java.sql.Date"/>
+	<field name="cc_pedidos_expedicao" class="java.lang.Integer"/>
+	<field name="cc_pedidos_amostra" class="java.lang.Boolean"/>
+	<field name="cc_pedidos_fretepago" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_entrega" class="java.sql.Date"/>
+	<field name="cc_pedidos_encargos" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_icmsst" class="java.math.BigDecimal"/>
+	<field name="cc_pedidos_despesas" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_pedidos_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_produtos_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_produtoorigem" class="java.lang.Integer"/>
+	<field name="cc_pedidositens_produtomarca" class="java.lang.String"/>
+	<field name="cc_pedidositens_descricao" class="java.lang.String"/>
+	<field name="cc_pedidositens_quantidade" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_quantidadeatendida" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_quantidadeaberto" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_precounitario" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_valordesconto" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_valortotal" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_entrega" class="java.lang.Integer"/>
+	<field name="cc_pedidositens_observacao" class="java.lang.String"/>
+	<field name="cc_pedidositens_custo" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_custooriginal" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_custogranel" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_unidadesmedida_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_embalagens_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_capacidade" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_volumes" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_margem" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_precosemfrete" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_valorsemfrete" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_precolista" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_grupostributarios_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_ipi" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_ipivalor" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_modembalagens" class="java.lang.Integer"/>
+	<field name="cc_pedidositens_pisisento" class="java.lang.Boolean"/>
+	<field name="cc_pedidositens_cofinsisento" class="java.lang.Boolean"/>
+	<field name="cc_pedidositens_produtomarca_id" class="java.lang.Long"/>
+	<field name="cc_pedidositens_unidadealterada" class="java.lang.Boolean"/>
+	<field name="cc_pedidositens_unidadeconversao" class="java.lang.Long"/>
+	<field name="cc_pedidositens_precounitarioconversao" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_custost" class="java.math.BigDecimal"/>
+	<field name="cc_pedidositens_custooriginalst" class="java.math.BigDecimal"/>
+	<field name="cc_terceiros_nome" class="java.lang.String"/>
+	<field name="cc_condicoespagamento_nome" class="java.lang.String"/>
+	<field name="cc_unidadesmedida_sigla" class="java.lang.String"/>
+	<field name="cc_embalagens_nometransporte" class="java.lang.String"/>
+
+	<variable name="somaVolumes" class="java.math.BigDecimal" resetType="Report" calculation="Sum">
+		<variableExpression><![CDATA[$F{cc_pedidositens_volumes}]]></variableExpression>
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="67"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="325"
+						y="-53"
+						width="170"
+						height="19"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-1"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="499"
+						y="-53"
+						width="36"
+						height="19"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-2"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="325"
+						y="-53"
+						width="170"
+						height="19"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-3"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Right">
+						<font size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["Page " + $V{PAGE_NUMBER} + " of "]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="" isBlankWhenNull="false" evaluationTime="Report" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="499"
+						y="-53"
+						width="36"
+						height="19"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-4"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA["" + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="8"
+						y="4"
+						width="50"
+						height="30"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[PEDIDO]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="61"
+						y="4"
+						width="140"
+						height="27"
+						key="textField-5"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{idPedido}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="4"
+						y="39"
+						width="54"
+						height="13"
+						key="staticText-2"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Cliente]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="61"
+						y="33"
+						width="300"
+						height="31"
+						key="textField-6"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_terceiros_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yy HH:mm" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="208"
+						y="4"
+						width="95"
+						height="13"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-7"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="402"
+						y="4"
+						width="50"
+						height="30"
+						key="staticText-15"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[PEDIDO]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="#,##0" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="455"
+						y="4"
+						width="140"
+						height="27"
+						key="textField-19"/>
+					<box></box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{idPedido}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="398"
+						y="39"
+						width="54"
+						height="13"
+						key="staticText-16"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Cliente]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="455"
+						y="33"
+						width="300"
+						height="31"
+						key="textField-20"/>
+					<box></box>
+					<textElement verticalAlignment="Middle">
+						<font pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_terceiros_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="dd/MM/yy HH:mm" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="602"
+						y="4"
+						width="95"
+						height="13"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="textField-21"/>
+					<box>					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+</box>
+					<textElement textAlignment="Left">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
+				</textField>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="36"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="101"
+						y="3"
+						width="268"
+						height="33"
+						key="textField-8"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_pedidositens_descricao} + " " + 
+( $F{cc_pedidositens_produtomarca} != null ? $F{cc_pedidositens_produtomarca} : "" )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="4"
+						y="3"
+						width="69"
+						height="24"
+						key="textField-9"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_pedidositens_quantidade}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="77"
+						y="3"
+						width="20"
+						height="12"
+						key="textField-10"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_unidadesmedida_sigla}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="495"
+						y="3"
+						width="268"
+						height="33"
+						key="textField-22"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="14" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_pedidositens_descricao} + " " + 
+( $F{cc_pedidositens_produtomarca} != null ? $F{cc_pedidositens_produtomarca} : "" )]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" pattern="##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="398"
+						y="3"
+						width="69"
+						height="24"
+						key="textField-23"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_pedidositens_quantidade}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="146"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="204"
+						y="2"
+						width="50"
+						height="13"
+						key="staticText-3"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[TOTAL]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="256"
+						y="2"
+						width="81"
+						height="13"
+						key="textField-11"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_pedidos_valortotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="19"
+						y="44"
+						width="50"
+						height="12"
+						key="staticText-4"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Frete]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="78"
+						y="43"
+						width="201"
+						height="12"
+						key="textField-12"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{frete}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="19"
+						y="71"
+						width="50"
+						height="19"
+						key="staticText-5"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Obs]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="77"
+						y="56"
+						width="40"
+						height="12"
+						key="textField-13"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$V{somaVolumes}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="124"
+						y="56"
+						width="59"
+						height="12"
+						key="staticText-6"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Peso Líquido]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="241"
+						y="56"
+						width="50"
+						height="12"
+						key="staticText-7"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Peso Bruto]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="77"
+						y="71"
+						width="262"
+						height="64"
+						key="textField-14"
+						stretchType="RelativeToBandHeight"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_pedidos_observacao}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="19"
+						y="56"
+						width="50"
+						height="12"
+						key="staticText-8"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Volumes]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="604"
+						y="3"
+						width="50"
+						height="13"
+						key="staticText-9"/>
+					<box></box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[TOTAL]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" pattern="##0.00" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="656"
+						y="3"
+						width="81"
+						height="13"
+						key="textField-15"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica-Bold" size="10" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$F{cc_pedidos_valortotal}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="419"
+						y="47"
+						width="50"
+						height="12"
+						key="staticText-10"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Frete]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="478"
+						y="46"
+						width="201"
+						height="12"
+						key="textField-16"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="8" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{frete}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="419"
+						y="74"
+						width="50"
+						height="19"
+						key="staticText-11"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Obs]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="477"
+						y="59"
+						width="40"
+						height="12"
+						key="textField-17"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.math.BigDecimal"><![CDATA[$V{somaVolumes}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="524"
+						y="59"
+						width="59"
+						height="12"
+						key="staticText-12"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Peso Líquido]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="641"
+						y="59"
+						width="50"
+						height="12"
+						key="staticText-13"/>
+					<box></box>
+					<textElement textAlignment="Left">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Peso Bruto]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="477"
+						y="74"
+						width="262"
+						height="64"
+						key="textField-18"
+						stretchType="RelativeToBandHeight"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{cc_pedidos_observacao}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement
+						x="419"
+						y="59"
+						width="50"
+						height="12"
+						key="staticText-14"/>
+					<box></box>
+					<textElement textAlignment="Right">
+						<font pdfFontName="Helvetica" size="8" isBold="false"/>
+					</textElement>
+				<text><![CDATA[Volumes]]></text>
+				</staticText>
+			</band>
+		</summary>
+</jasperReport>

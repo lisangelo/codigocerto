@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="EtiquetaClienteCodBarra2"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="553"
+		 columnSpacing="0"
+		 leftMargin="28"
+		 rightMargin="14"
+		 topMargin="36"
+		 bottomMargin="36"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="cliente" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="documento" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="cidade" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="uf" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="notaFiscal" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="emissao" isForPrompting="true" class="java.lang.String"/>
+	<parameter name="numeroEtiquetas" isForPrompting="true" class="java.lang.Integer">
+		<defaultValueExpression ><![CDATA[Integer.valueOf(2)]]></defaultValueExpression>
+	</parameter>
+	<queryString><![CDATA[select * from cc_terceiros limit $P{numeroEtiquetas}]]></queryString>
+
+	<field name="cc_terceiros_id" class="java.lang.Long"/>
+	<field name="cc_terceiros_nome" class="java.lang.String"/>
+	<field name="cc_terceiros_fantasia" class="java.lang.String"/>
+	<field name="cc_terceiros_site" class="java.lang.String"/>
+	<field name="cc_terceiros_tipo_id" class="java.lang.Integer"/>
+	<field name="cc_terceiros_consumidorfinal" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_produtorrural" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_suframa" class="java.lang.String"/>
+	<field name="cc_terceiros_capitalsocial" class="java.math.BigDecimal"/>
+	<field name="cc_terceiros_limitecredito" class="java.math.BigDecimal"/>
+	<field name="cc_terceiros_segmentos_id" class="java.lang.Long"/>
+	<field name="cc_terceiros_isencaoipi" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_isencaoicms" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_isencaopis" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_isencaocofins" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_diferimentoicms" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_paises_id" class="java.lang.Long"/>
+	<field name="cc_terceiros_emailnfe" class="java.lang.String"/>
+	<field name="cc_terceiros_ierural" class="java.lang.String"/>
+	<field name="cc_terceiros_infoadicional" class="java.lang.String"/>
+	<field name="cc_terceiros_infofinanceiro" class="java.lang.String"/>
+	<field name="cc_terceiros_exibirinfofinanceiro" class="java.lang.Boolean"/>
+	<field name="cc_terceiros_vendedor" class="java.lang.Long"/>
+	<field name="cc_terceiros_categoria" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="76"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="76"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="219"
+						y="2"
+						width="256"
+						height="12"
+						key="textField-1"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="9" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{cliente}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="219"
+						y="14"
+						width="139"
+						height="12"
+						key="textField-2"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{cidade} + "/" + $P{uf}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="119"
+						y="2"
+						width="82"
+						height="12"
+						key="textField-3"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{notaFiscal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="69"
+						y="14"
+						width="132"
+						height="12"
+						key="textField-4"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{emissao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="true" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="358"
+						y="14"
+						width="90"
+						height="12"
+						key="textField-5"
+						isRemoveLineWhenBlank="true"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica-Bold" size="9" isBold="true"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$P{documento}]]></textFieldExpression>
+				</textField>
+				<image  scaleImage="RetainShape" vAlign="Top" hAlign="Left" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="219"
+						y="28"
+						width="229"
+						height="46"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="barcode-1"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch" fill="Solid" />
+					<imageExpression class="java.awt.Image"><![CDATA[it.businesslogic.ireport.barcode.BcImage.getBarcodeImage(9,$P{documento},false,false,null,0,0)]]></imageExpression>
+				</image>
+				<image  scaleImage="RetainShape" vAlign="Top" hAlign="Left" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						mode="Opaque"
+						x="69"
+						y="28"
+						width="107"
+						height="46"
+						forecolor="#000000"
+						backcolor="#FFFFFF"
+						key="barcode-2"/>
+					<box></box>
+					<graphicElement stretchType="NoStretch" fill="Solid" />
+					<imageExpression class="java.awt.Image"><![CDATA[it.businesslogic.ireport.barcode.BcImage.getBarcodeImage(9,$P{notaFiscal},false,false,null,0,0)]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement
+						x="68"
+						y="2"
+						width="43"
+						height="12"
+						key="staticText-3"/>
+					<box></box>
+					<textElement>
+						<font pdfFontName="Helvetica" size="9" isBold="false"/>
+					</textElement>
+				<text><![CDATA[NF-e]]></text>
+				</staticText>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

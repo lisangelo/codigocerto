@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : cfop.xml
+    Created on : 3 de Abril de 2012, 10:03
+    Author     : lis
+    Description:
+        Purpose of the document follows.
+-->
+
+<cfop>
+    <venda>100</venda>
+    <vendafe>101</vendafe>
+    <amostra>102</amostra>
+    <amostrafe>103</amostrafe>
+    <vendast>112</vendast>
+    <vendastfe>117</vendastfe>
+</cfop>
